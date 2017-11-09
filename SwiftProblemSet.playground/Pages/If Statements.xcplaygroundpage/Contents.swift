@@ -60,9 +60,13 @@ Change the values of the variables and see how the output changes.
 */
 var game = "Slow adventures with Morris the Lorris"
 
+
+let MAX_BUGS_ALLOWED = 9 // 10 - 1
+let MIN_LEVELS_ALLOWED = 6 // 9 + 1
+
 var bugs = 9
 var hasMusic = true
-var numberOfLevels = 7
+var numberOfLevels = 6
 
 func release() {
     print("\(game) is now ready for sale.")
@@ -70,11 +74,11 @@ func release() {
 
 func checkForRelease(bugs: Int, music: Bool, levels: Int) {
     
-    if bugs < 10 && music && levels > 5 {
+    if bugs <= MAX_BUGS_ALLOWED && music && levels >= MIN_LEVELS_ALLOWED {
         release()
     } else {
         
-        if bugs >= 10 {
+        if bugs > MAX_BUGS_ALLOWED {
             print("Fix Bugs: There are \(bugs) bugs.")
         }
         
@@ -82,7 +86,7 @@ func checkForRelease(bugs: Int, music: Bool, levels: Int) {
             print("Add Music: There is no music.")
         }
         
-        if levels <= 5 {
+        if levels < MIN_LEVELS_ALLOWED {
             print("Add Levels: There are only \(levels) levels.")
         }
     }

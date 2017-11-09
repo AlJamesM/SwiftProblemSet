@@ -16,22 +16,31 @@ func emojiLove(s1 : String, s2 : String) {
 //: ### Exercise 15
 //: The function `median` should take three `Int` parameters and return the `Int` value in the middle.
 func median( num1 : Int, num2 : Int, num3 : Int ) -> Int {
+
+    var sort1 = num1
+    var sort2 = num2
+    var sort3 = num3
+    var temp = 0
     
-    var median = num1
-    
-    let num12 = num1 - num2
-    let num23 = num2 - num3
-    let num13 = num1 - num3
-    
-    if num12 * num23 > 0 {
-        median = num2
+    if sort1 > sort2 {
+        temp = sort1
+        sort1 = sort2
+        sort2 = temp
     }
     
-    if num12 * num13 > 0 {
-        median = num3
+    if sort2 > sort3 {
+        temp = sort2
+        sort2 = sort3
+        sort3 = temp
+    }
+    
+    if sort1 > sort2 {
+        temp = sort1
+        sort1 = sort2
+        sort2 = temp
     }
 
-    return median
+    return sort2
 }
 
  median(num1: 1, num2: 5, num3: 6) // 5
